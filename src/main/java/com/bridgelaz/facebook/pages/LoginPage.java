@@ -5,8 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends TestBase {
+import java.util.logging.Logger;
 
+
+public class LoginPage extends TestBase {
+    Logger logger;
     /* Page Factory --OR Object Repository*/
     // declaration
     /* username using ID property*/
@@ -31,15 +34,18 @@ public class LoginPage extends TestBase {
           ans- we have an method PageFactory of initElements meanse intialing element with driver and
           this- current class object*/
         PageFactory.initElements(driver, this);
+        logger = Logger.getLogger(LoginPage.class.getName());
     }
     // Actions
-    /* get the pade title name*/
+    /* get the page title name*/
     public String verifyPageTitle() {
+        logger.info(".....Verify the Page Title.....");
         return driver.getTitle();
     }
 
     /* create one more method login and pass the string veriable meanse username and password,*/
     public HomePage login(String username, String password) {
+        logger.info(".....login.....");
         /* send the values to username and password using sendkey() method*/
         this.username.sendKeys(username);
         this.password.sendKeys(password);

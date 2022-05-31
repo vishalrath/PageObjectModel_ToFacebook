@@ -1,11 +1,13 @@
 package com.bridgelabz.facebook.base;
 
 import com.facebook.util.UtilityClass;
+import com.facebook.util.WebEventListener;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,11 +16,11 @@ import java.util.concurrent.TimeUnit;
 
 public class TestBase {
     public static WebDriver driver;
-
+    public  static EventFiringWebDriver e_driver;
     /* Properties is globle veriable*/
     public static Properties properties;
-    // public static EventFiringWebDriver eventFiringWebdriver;
-    // public static WebEventListener eventListener;
+    public static EventFiringWebDriver eventFiringWebdriver;
+    public static WebEventListener eventListener;
     /* initializing all properties*/
 
     /*create constructer class and read the properties*/
@@ -58,6 +60,12 @@ public class TestBase {
             driver = new ChromeDriver(option);
 
         }
+        // Capture screenshot when test failed
+        eventFiringWebdriver = new EventFiringWebDriver(driver);
+        eventListener = new WebEventListener();
+        eventFiringWebdriver.register(eventListener);
+        driver = eventFiringWebdriver;
+
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
 
