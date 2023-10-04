@@ -4,14 +4,14 @@
 
     <!--    <listeners>-->
     <!--        <listener-->
-    <!--                class-name="com.bridgelabz.facebook.ExtendReportListener.ExtentReporterNG" />-->
+    <!--                class-name="ExtentReporterNG" />-->
     <!--    </listeners>-->
 <!--  in side the sanity define 2 or thgee important test cases-->
 <!--    We do sanity test  when we have less time to execute the test cases-->
     <test name="facebook Web Application test cases">
         <classes>
-            <class name="com.bridgelabz.facebook.test.HomePageTest" />
-            <class name="com.bridgelabz.facebook.test.LoginPageTest" />
+            <class name="HomePageTest" />
+            <class name="LoginPageTest" />
         </classes>
     </test>
 </suite>

@@ -5,15 +5,15 @@
 
     <listeners>
         <listener
-                class-name="com.bridgelabz.facebook.ExtendReportListener.ExtentReporterNG" />
+                class-name="ExtentReporterNG" />
     </listeners>
 
 <!-- we have create 100 test case then we need to define 100 test cases -->
 <!--    this  one take a more and more time to execute the test cases -->
     <test name="facebook Web Application test cases">
         <classes>
-            <class name="com.bridgelabz.facebook.test.HomePageTest" />
-            <class name="com.bridgelabz.facebook.test.LoginPageTest" />
+            <class name="HomePageTest" />
+            <class name="LoginPageTest" />
         </classes>
     </test>
 </suite>
